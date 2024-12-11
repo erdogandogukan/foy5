@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Ogrenci Yonetim Sistemi</a>
+
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/students}">Ogrenci Yonetimi</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+
+            <div class="text-center" style="font-size: 30px"> Ogrenci Update</div>
+            <div class="card-body"></div>
+            <form th:action="@{/students/edit/{id}(id=${student.id})}" th:object="${student}" method="post">
+
+                <div class="form-group">
+
+                    <label>Ogrenci Ad</label>
+                    <label for="firstName"></label><input type="text" name="firstName" id="firstName" class="form-control" th:field="*{firstName}" placeholder="Ad Giriniz"/>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Ogrenci Soyad</label>
+                    <input type="text" name="lastName" id="lastName" class="form-control" th:field="*{lastName}" placeholder="Soyad Giriniz"/>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Ogrenci Email</label>
+                    <input type="text" name="email" id="email" class="form-control" th:field="*{email}" placeholder="Email Giriniz"/>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Ogrenci Bolum</label>
+                    <input type="text" name="department" id="department" class="form-control" th:field="*{department}" placeholder="Bolum Giriniz"/>
+
+                </div>
+
+
+                <div class="box-footer row ">
+                    <button type="submit" class="btn btn-primary mx-auto" >Submit</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
